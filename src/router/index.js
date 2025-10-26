@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import Layout from '@/views/Layout/Layout.vue'
 import Home from '@/views/Home/Home.vue'
 
 const router = createRouter({
@@ -7,7 +8,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: Home,
+      component: Layout,
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: Home,
+        },
+        // 可以在这里添加更多子路由
+        // {
+        //   path: 'about',
+        //   name: 'about',
+        //   component: () => import('@/views/About/About.vue'),
+        // },
+      ],
     },
   ],
 })
